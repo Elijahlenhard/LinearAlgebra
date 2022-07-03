@@ -31,21 +31,22 @@ public class Matrix {
     public double getIndex(int dim1, int dim2){
         return matrix[dim1][dim2];
     }
+
     public String toString(){
 
-        String output = "";
+        StringBuilder output = new StringBuilder();//initializes output
 
-        for(int i =0; i<matrix.length; i++){
-            output += "|";
-            for(int j =0; j<matrix[0].length; j++){
-                output+= " " + matrix[i][j] + " ";
+        for (double[] doubles : matrix) {
+            output.append("|");
+            for (int j = 0; j < matrix[0].length; j++) {
+                output.append(" ").append(doubles[j]).append(" ");
 
             }
-            output +="|\n";
+            output.append("|\n");
 
         }
 
-        return output;
+        return output.toString();
     }
 
     public Vector multiplyByVector(Vector vector, boolean log){
